@@ -3,9 +3,11 @@ import 'package:bank_balance/modules/dashboard/home_page/modal/pricemodal.dart';
 import 'package:bank_balance/modules/dashboard/home_page/widget/homepage_widget.dart';
 import 'package:bank_balance/res/app_colors.dart';
 import 'package:bank_balance/res/strings_utils.dart';
+import 'package:bank_balance/utils/navigation_utils/navigation.dart';
+import 'package:bank_balance/utils/navigation_utils/routes.dart';
 import 'package:bank_balance/utils/size_utils.dart';
 import 'package:bank_balance/widget/app_text.dart';
-import 'package:bank_balance/widget/heafercontainer.dart';
+import 'package:bank_balance/widget/headercontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -52,8 +54,7 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
-                            top: SizeUtils.horizontalBlockSize * 4),
+                        padding: EdgeInsets.only(top: SizeUtils.horizontalBlockSize * 4),
                         child: SizedBox(
                           height: SizeUtils.verticalBlockSize * 20,
                           child: PageView.builder(
@@ -63,23 +64,18 @@ class HomePage extends StatelessWidget {
                               homeController.currentPage.value = index;
                             },
                             itemCount: slideList.length,
-                            itemBuilder: (ctx, index) => slideItem(
-                                index: homeController.currentPage.value),
+                            itemBuilder: (ctx, index) => slideItem(index: homeController.currentPage.value),
                           ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
-                            top: SizeUtils.horizontalBlockSize * 3),
+                        padding: EdgeInsets.only(top: SizeUtils.horizontalBlockSize * 3),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             for (int i = 0; i < slideList.length; i++)
-                              if (i == homeController.currentPage.value)
-                                const SlideDots(true)
-                              else
-                                const SlideDots(false)
+                              if (i == homeController.currentPage.value) const SlideDots(true) else const SlideDots(false)
                           ],
                         ),
                       ),
@@ -91,8 +87,7 @@ class HomePage extends StatelessWidget {
                 height: SizeUtils.horizontalBlockSize * 3,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: SizeUtils.horizontalBlockSize * 4),
+                padding: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 4),
                 child: Column(
                   children: [
                     headerRow(
@@ -104,17 +99,21 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: gridItemList.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           childAspectRatio: 45 / 50,
                           mainAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
-                          return gridContainer(
-                            image: gridItemList[index].imageUrl,
-                            text: gridItemList[index].price1,
-                            text1: gridItemList[index].price2,
+                          return GestureDetector(
+                            onTap: () {
+                              navigation(id: gridItemList[index].id);
+                            },
+                            child: gridContainer(
+                              image: gridItemList[index].imageUrl,
+                              text: gridItemList[index].price1,
+                              text1: gridItemList[index].price2,
+                            ),
                           );
                         }),
                     headerRow(
@@ -126,8 +125,7 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: gridItemList1.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           childAspectRatio: 45 / 50,
                           mainAxisSpacing: 2,
@@ -148,8 +146,7 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: gridItemList2.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           childAspectRatio: 45 / 50,
                           mainAxisSpacing: 2,
@@ -195,5 +192,28 @@ class HomePage extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  navigation({int? id}) {
+    switch (id) {
+      case 0:
+        return Navigation.pushNamed(Routes.bankBalance);
+        break;
+      case 1:
+        return Navigation.pushNamed(Routes.ifscPage);
+        break;
+      case 2:
+        return Navigation.pushNamed(Routes.ifscPage);
+        break;
+      case 3:
+        return Navigation.pushNamed(Routes.ifscPage);
+        break;
+      case 4:
+        return Navigation.pushNamed(Routes.ifscPage);
+        break;
+      case 5:
+        return Navigation.pushNamed(Routes.ifscPage);
+        break;
+    }
   }
 }

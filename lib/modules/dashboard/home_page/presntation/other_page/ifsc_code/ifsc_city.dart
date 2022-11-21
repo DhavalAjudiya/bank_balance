@@ -1,0 +1,69 @@
+import 'package:bank_balance/modules/dashboard/home_page/controller/home_controller.dart';
+import 'package:bank_balance/modules/dashboard/home_page/modal/ifscmodal.dart';
+import 'package:bank_balance/modules/dashboard/home_page/widget/homepage_widget.dart';
+import 'package:bank_balance/res/app_colors.dart';
+import 'package:bank_balance/res/strings_utils.dart';
+import 'package:bank_balance/utils/navigation_utils/navigation.dart';
+import 'package:bank_balance/utils/navigation_utils/routes.dart';
+import 'package:bank_balance/utils/size_utils.dart';
+import 'package:bank_balance/widget/custom_textfield.dart';
+import 'package:bank_balance/widget/headercontainer.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class IFSCSelectCity extends StatelessWidget {
+  IFSCSelectCity({Key? key}) : super(key: key);
+  final HomeController homeController = Get.find();
+  var cityData;
+  @override
+  Widget build(BuildContext context) {
+    cityData = Get.arguments;
+
+    return Scaffold(
+      body: Column(
+        children: [
+          headerContainer(
+            StringsUtils.selectDistrict,
+            iconChange: true,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: SizeUtils.horizontalBlockSize * 4,
+              left: SizeUtils.horizontalBlockSize * 4,
+              right: SizeUtils.horizontalBlockSize * 4,
+            ),
+            child: CustomTextField(
+              controller: homeController.searchController,
+              enableColor: AppColors.dartBlue,
+            ),
+          ),
+          ListView.builder(
+            padding: EdgeInsets.only(top: SizeUtils.horizontalBlockSize * 2),
+            shrinkWrap: true,
+            itemCount: cityData["cityDetails"].length,
+            itemBuilder: (context, index) {
+              final city = cityData["cityDetails"][index];
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeUtils.horizontalBlockSize * 1,
+                  horizontal: SizeUtils.horizontalBlockSize * 4,
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigation.pushNamed(
+                      Routes.iFSCSelectBranch,
+                      arg: {"branchDetails": city["place"]},
+                    );
+                  },
+                  child: bankDetails(
+                    city["citName"],
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}

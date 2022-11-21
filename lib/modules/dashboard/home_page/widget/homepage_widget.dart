@@ -14,14 +14,9 @@ class SlideDots extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),
-      margin:
-          EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1),
-      height: isActive
-          ? SizeUtils.horizontalBlockSize * 1.5
-          : SizeUtils.horizontalBlockSize * 1.5,
-      width: isActive
-          ? SizeUtils.horizontalBlockSize * 4.5
-          : SizeUtils.horizontalBlockSize * 1.5,
+      margin: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1),
+      height: isActive ? SizeUtils.horizontalBlockSize * 1.5 : SizeUtils.horizontalBlockSize * 1.5,
+      width: isActive ? SizeUtils.horizontalBlockSize * 4.5 : SizeUtils.horizontalBlockSize * 1.5,
       decoration: BoxDecoration(
         color: isActive ? AppColors.darkBlue : AppColors.textColor,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -39,19 +34,12 @@ class SlideDotsItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),
-      margin:
-          EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1.8),
-      height: isActive
-          ? SizeUtils.horizontalBlockSize * 2.4
-          : SizeUtils.horizontalBlockSize * 2.4,
-      width: isActive
-          ? SizeUtils.horizontalBlockSize * 4
-          : SizeUtils.horizontalBlockSize * 2.4,
+      margin: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1.8),
+      height: isActive ? SizeUtils.horizontalBlockSize * 2.4 : SizeUtils.horizontalBlockSize * 2.4,
+      width: isActive ? SizeUtils.horizontalBlockSize * 4 : SizeUtils.horizontalBlockSize * 2.4,
       decoration: BoxDecoration(
         color: isActive ? AppColors.darkBlue : Colors.transparent,
-        border: isActive
-            ? Border.all(width: 2, color: AppColors.darkBlue)
-            : Border.all(width: 1.4, color: AppColors.darkBlue),
+        border: isActive ? Border.all(width: 2, color: AppColors.darkBlue) : Border.all(width: 1.4, color: AppColors.darkBlue),
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -68,9 +56,7 @@ Widget slideItem({required int index}) {
       borderRadius: BorderRadius.circular(15),
     ),
     child: Padding(
-      padding: EdgeInsets.symmetric(
-          vertical: SizeUtils.horizontalBlockSize * 2,
-          horizontal: SizeUtils.horizontalBlockSize * 3),
+      padding: EdgeInsets.symmetric(vertical: SizeUtils.horizontalBlockSize * 2, horizontal: SizeUtils.horizontalBlockSize * 3),
       child: Column(
         children: [
           AppText(
@@ -79,8 +65,7 @@ Widget slideItem({required int index}) {
             color: AppColors.white,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: SizeUtils.horizontalBlockSize * 5),
+            padding: EdgeInsets.symmetric(vertical: SizeUtils.horizontalBlockSize * 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -173,14 +158,80 @@ Widget slideItem({required int index}) {
   );
 }
 
-// Widget customAppLogo({double? vertical, double? height}) {
-//   return Padding(
-//     padding: EdgeInsets.only(top: vertical ?? SizeUtils.horizontalBlockSize * 19, bottom: SizeUtils.horizontalBlockSize * 10),
-//     child: Image.asset(
-//       AssetsPath.appLogo,
-//       height: height ?? SizeUtils.horizontalBlockSize * 23,
-//       width: double.infinity,
-//       // color: AppColors.backGroundColor,
-//     ),
-//   );
-// }
+Widget bankDetails(String text) {
+  return Container(
+    alignment: Alignment.center,
+    decoration: BoxDecoration(
+      color: AppColors.white,
+      borderRadius: BorderRadius.circular(8),
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.black.withOpacity(0.2),
+          blurRadius: 2,
+          // spreadRadius: 2,
+          // offset: const Offset(1, 1),
+        ),
+      ],
+    ),
+    child: Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: SizeUtils.horizontalBlockSize * 3,
+        horizontal: SizeUtils.horizontalBlockSize * 4,
+      ),
+      child: Row(
+        children: [
+          AppText(
+            text,
+            fontSize: SizeUtils.fSize_18(),
+            fontWeight: FontWeight.w300,
+          ),
+          const Spacer(),
+          Icon(
+            Icons.arrow_forward_ios,
+            size: SizeUtils.horizontalBlockSize * 5,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget headerText(String text) {
+  return AppText(
+    text,
+    fontWeight: FontWeight.bold,
+    fontSize: SizeUtils.fSize_18(),
+  );
+}
+
+Widget ifscDetails(String text) {
+  return Container(
+    width: double.infinity,
+    // alignment: Alignment.center,
+    decoration: BoxDecoration(
+      color: AppColors.white,
+      borderRadius: BorderRadius.circular(3),
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.black.withOpacity(0.2),
+          blurRadius: 2,
+          // spreadRadius: 2,
+          // offset: const Offset(1, 1),
+        ),
+      ],
+    ),
+    child: Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: SizeUtils.horizontalBlockSize * 2,
+        horizontal: SizeUtils.horizontalBlockSize * 4,
+      ),
+      child: AppText(
+        text.toUpperCase(),
+        fontSize: SizeUtils.fSize_14(),
+        fontWeight: FontWeight.w300,
+        maxLines: 3,
+        overflow: TextOverflow.fade,
+      ),
+    ),
+  );
+}

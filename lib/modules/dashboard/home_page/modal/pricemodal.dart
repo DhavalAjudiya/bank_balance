@@ -56,11 +56,13 @@ class GridItem {
   final String imageUrl;
   final String price1;
   final String price2;
+  final int id;
 
   GridItem({
     required this.imageUrl,
     required this.price1,
     required this.price2,
+    required this.id,
   });
 }
 
@@ -69,31 +71,37 @@ final gridItemList = [
     imageUrl: AssetsPath.home,
     price1: 'Bank',
     price2: 'Balance',
+    id: 0,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'IFSC',
     price2: 'Code',
+    id: 1,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'Bank',
     price2: 'Holiday',
+    id: 2,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'USSD',
     price2: 'Banking',
+    id: 3,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'Net',
     price2: 'Banking',
+    id: 4,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'Near By',
     price2: 'Place',
+    id: 5,
   ),
 ];
 final gridItemList1 = [
@@ -101,16 +109,19 @@ final gridItemList1 = [
     imageUrl: AssetsPath.home,
     price1: 'Mutual',
     price2: 'Funds',
+    id: 0,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'Popular',
     price2: 'Funds',
+    id: 1,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'Explore',
     price2: 'Funds',
+    id: 2,
   ),
 ];
 final gridItemList2 = [
@@ -118,15 +129,18 @@ final gridItemList2 = [
     imageUrl: AssetsPath.home,
     price1: 'Personal',
     price2: 'Loans',
+    id: 0,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'Home ',
     price2: 'Loans',
+    id: 1,
   ),
   GridItem(
     imageUrl: AssetsPath.home,
     price1: 'Car',
     price2: 'Loans',
+    id: 2,
   ),
 ];

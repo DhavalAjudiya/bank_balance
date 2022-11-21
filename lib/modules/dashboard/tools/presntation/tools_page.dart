@@ -2,7 +2,7 @@ import 'package:bank_balance/modules/dashboard/tools/modal/toolsmodal.dart';
 import 'package:bank_balance/res/strings_utils.dart';
 import 'package:bank_balance/utils/size_utils.dart';
 
-import 'package:bank_balance/widget/heafercontainer.dart';
+import 'package:bank_balance/widget/headercontainer.dart';
 import 'package:flutter/material.dart';
 
 class ToolsPage extends StatelessWidget {
@@ -16,10 +16,10 @@ class ToolsPage extends StatelessWidget {
           children: [
             headerContainer(
               StringsUtils.tools,
+              iconChange: true,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: SizeUtils.horizontalBlockSize * 2),
+              padding: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 2),
               child: GridView.builder(
                   padding: const EdgeInsets.symmetric(vertical: 6),
                   physics: const NeverScrollableScrollPhysics(),

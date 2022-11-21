@@ -1,10 +1,10 @@
 import 'package:bank_balance/res/app_colors.dart';
+import 'package:bank_balance/utils/navigation_utils/navigation.dart';
 import 'package:bank_balance/utils/size_utils.dart';
 import 'package:bank_balance/widget/app_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget headerContainer(String text) {
+Widget headerContainer(String text, {bool? iconChange = false}) {
   return Container(
     decoration: BoxDecoration(
       color: AppColors.headerContainer,
@@ -20,9 +20,19 @@ Widget headerContainer(String text) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(
-            Icons.menu,
-          ),
+          iconChange == true
+              ? GestureDetector(
+                  onTap: () {
+                    Navigation.pop();
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: SizeUtils.horizontalBlockSize * 5,
+                  ),
+                )
+              : const Icon(
+                  Icons.menu,
+                ),
           AppText(
             text,
             fontWeight: FontWeight.bold,
