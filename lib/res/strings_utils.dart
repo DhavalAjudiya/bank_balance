@@ -32,4 +32,9 @@ class StringsUtils {
   static const String selectBranch = 'Select Branch';
   static const String selectDistrict = 'Select District';
   static const String selectState = 'Select State';
+  static const String bankBalance = 'Bank Balance';
+  static const String miniStatement = 'Mini Statement';
+  static const String care = 'Customer care Number';
+  static const String balanceInquiryHeader = '*Please Dial from Registered Mobile Number in Bank';
+  static const String internetBanking = 'Internet Banking';
 }

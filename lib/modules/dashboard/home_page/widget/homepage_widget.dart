@@ -204,13 +204,16 @@ Widget headerText(String text) {
   );
 }
 
-Widget ifscDetails(String text) {
+Widget ifscDetails(
+  String text, {
+  bool isChange = false,
+}) {
   return Container(
     width: double.infinity,
     // alignment: Alignment.center,
     decoration: BoxDecoration(
       color: AppColors.white,
-      borderRadius: BorderRadius.circular(3),
+      borderRadius: BorderRadius.circular(isChange ? 15 : 3),
       boxShadow: [
         BoxShadow(
           color: AppColors.black.withOpacity(0.2),
@@ -220,18 +223,42 @@ Widget ifscDetails(String text) {
         ),
       ],
     ),
-    child: Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: SizeUtils.horizontalBlockSize * 2,
-        horizontal: SizeUtils.horizontalBlockSize * 4,
-      ),
-      child: AppText(
-        text.toUpperCase(),
-        fontSize: SizeUtils.fSize_14(),
-        fontWeight: FontWeight.w300,
-        maxLines: 3,
-        overflow: TextOverflow.fade,
-      ),
-    ),
+    child: isChange
+        ? Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: SizeUtils.horizontalBlockSize * 2,
+              horizontal: SizeUtils.horizontalBlockSize * 4,
+            ),
+            child: Row(
+              children: [
+                AppText(
+                  text.toUpperCase(),
+                  fontSize: SizeUtils.fSize_17(),
+                  fontWeight: FontWeight.w400,
+                  maxLines: 3,
+                  overflow: TextOverflow.fade,
+                ),
+                const Spacer(),
+                Icon(
+                  Icons.phone,
+                  color: AppColors.dartBlue,
+                  size: SizeUtils.horizontalBlockSize * 8,
+                ),
+              ],
+            ),
+          )
+        : Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: SizeUtils.horizontalBlockSize * 2,
+              horizontal: SizeUtils.horizontalBlockSize * 4,
+            ),
+            child: AppText(
+              text.toUpperCase(),
+              fontSize: SizeUtils.fSize_14(),
+              fontWeight: FontWeight.w300,
+              maxLines: 3,
+              overflow: TextOverflow.fade,
+            ),
+          ),
   );
 }

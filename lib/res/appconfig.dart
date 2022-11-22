@@ -1,7 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class AppConfig {
   AppConfig._();
-  static const String baseUrl = 'http://144.126.254.69:8088/';
-  static const String signUP = 'user/registration/';
-  static const String signIn = 'login/';
-  static const String forgotPassword = 'user/forgotpassword/';
+  static final FirebaseFirestore databaseReference = FirebaseFirestore.instance;
 }

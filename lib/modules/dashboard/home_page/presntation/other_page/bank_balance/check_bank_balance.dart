@@ -2,6 +2,8 @@ import 'package:bank_balance/modules/dashboard/home_page/controller/home_control
 import 'package:bank_balance/modules/dashboard/home_page/widget/homepage_widget.dart';
 import 'package:bank_balance/res/app_colors.dart';
 import 'package:bank_balance/res/strings_utils.dart';
+import 'package:bank_balance/utils/navigation_utils/navigation.dart';
+import 'package:bank_balance/utils/navigation_utils/routes.dart';
 import 'package:bank_balance/utils/size_utils.dart';
 import 'package:bank_balance/widget/custom_textfield.dart';
 import 'package:bank_balance/widget/headercontainer.dart';
@@ -11,6 +13,7 @@ import 'package:get/get.dart';
 class BankBalancePage extends StatelessWidget {
   BankBalancePage({Key? key}) : super(key: key);
   final HomeController homeController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,7 @@ class BankBalancePage extends StatelessWidget {
           ListView.builder(
             padding: EdgeInsets.only(top: SizeUtils.horizontalBlockSize * 2),
             shrinkWrap: true,
-            itemCount: 5,
+            itemCount: homeController.balanceInquiryList.length,
             itemBuilder: (context, index) {
               // final state = stateData["stateDetails"][index];
               return Padding(
@@ -45,14 +48,18 @@ class BankBalancePage extends StatelessWidget {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    // Navigation.pushNamed(
-                    //   Routes.iFSCSelectCity,
-                    //   arg: {"cityDetails": state["city"]},
-                    // );
+                    Navigation.pushNamed(
+                      Routes.bankDetails,
+                      arg: {
+                        "details": homeController.balanceInquiryList[index].details,
+                        "bankName": homeController.balanceInquiryList[index].bankname,
+                      },
+                    );
+                    print("homeController.balanceInquiryList--------${homeController.balanceInquiryList[index].details}");
                   },
                   child: bankDetails(
-                      // state["st"]",
-                      "123456"),
+                    "${homeController.balanceInquiryList[index].bankname}",
+                  ),
                 ),
               );
             },

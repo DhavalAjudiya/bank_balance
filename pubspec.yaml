@@ -37,8 +37,8 @@ dependencies:
 #  firebase_auth: ^4.1.2
 #  google_sign_in: ^5.4.2
   #  firebase_core_platform_interface: ^4.5.2
-#  firebase_core: ^2.2.0
-  #  cloud_firestore: ^3.1.17
+  firebase_core: ^2.3.0
+  cloud_firestore: ^4.1.0
   get: ^4.6.5
   bot_toast: ^4.0.3
   connectivity_plus: ^2.3.9
