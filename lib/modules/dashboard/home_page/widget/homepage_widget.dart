@@ -14,9 +14,14 @@ class SlideDots extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),
-      margin: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1),
-      height: isActive ? SizeUtils.horizontalBlockSize * 1.5 : SizeUtils.horizontalBlockSize * 1.5,
-      width: isActive ? SizeUtils.horizontalBlockSize * 4.5 : SizeUtils.horizontalBlockSize * 1.5,
+      margin:
+          EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1),
+      height: isActive
+          ? SizeUtils.horizontalBlockSize * 1.5
+          : SizeUtils.horizontalBlockSize * 1.5,
+      width: isActive
+          ? SizeUtils.horizontalBlockSize * 4.5
+          : SizeUtils.horizontalBlockSize * 1.5,
       decoration: BoxDecoration(
         color: isActive ? AppColors.darkBlue : AppColors.textColor,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -34,12 +39,19 @@ class SlideDotsItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),
-      margin: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1.8),
-      height: isActive ? SizeUtils.horizontalBlockSize * 2.4 : SizeUtils.horizontalBlockSize * 2.4,
-      width: isActive ? SizeUtils.horizontalBlockSize * 4 : SizeUtils.horizontalBlockSize * 2.4,
+      margin:
+          EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 1.8),
+      height: isActive
+          ? SizeUtils.horizontalBlockSize * 2.4
+          : SizeUtils.horizontalBlockSize * 2.4,
+      width: isActive
+          ? SizeUtils.horizontalBlockSize * 4
+          : SizeUtils.horizontalBlockSize * 2.4,
       decoration: BoxDecoration(
         color: isActive ? AppColors.darkBlue : Colors.transparent,
-        border: isActive ? Border.all(width: 2, color: AppColors.darkBlue) : Border.all(width: 1.4, color: AppColors.darkBlue),
+        border: isActive
+            ? Border.all(width: 2, color: AppColors.darkBlue)
+            : Border.all(width: 1.4, color: AppColors.darkBlue),
         borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -56,7 +68,9 @@ Widget slideItem({required int index}) {
       borderRadius: BorderRadius.circular(15),
     ),
     child: Padding(
-      padding: EdgeInsets.symmetric(vertical: SizeUtils.horizontalBlockSize * 2, horizontal: SizeUtils.horizontalBlockSize * 3),
+      padding: EdgeInsets.symmetric(
+          vertical: SizeUtils.horizontalBlockSize * 2,
+          horizontal: SizeUtils.horizontalBlockSize * 3),
       child: Column(
         children: [
           AppText(
@@ -65,7 +79,8 @@ Widget slideItem({required int index}) {
             color: AppColors.white,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: SizeUtils.horizontalBlockSize * 5),
+            padding: EdgeInsets.symmetric(
+                vertical: SizeUtils.horizontalBlockSize * 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -260,5 +275,92 @@ Widget ifscDetails(
               overflow: TextOverflow.fade,
             ),
           ),
+  );
+}
+
+Widget ussdDetails(
+  String text,
+  String text1,
+  String text2,
+  String subText,
+  String subText1,
+  String subText2,
+) {
+  return Container(
+    width: double.infinity,
+    // alignment: Alignment.center,
+    decoration: BoxDecoration(
+      color: AppColors.white,
+      borderRadius: BorderRadius.circular(12),
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.black.withOpacity(0.2),
+          blurRadius: 2,
+          // spreadRadius: 2,
+          // offset: const Offset(1, 1),
+        ),
+      ],
+    ),
+    child: Column(
+      children: [
+        AppText(
+          text1,
+          fontSize: SizeUtils.fSize_17(),
+          fontWeight: FontWeight.w400,
+          maxLines: 3,
+          overflow: TextOverflow.fade,
+        ),
+        AppText(
+          text2,
+          fontSize: SizeUtils.fSize_17(),
+          fontWeight: FontWeight.w400,
+          maxLines: 3,
+          overflow: TextOverflow.fade,
+        ),
+        Row(
+          children: [
+            RichText(
+              text: TextSpan(
+                text: text,
+                style: TextStyle(
+                  fontSize: SizeUtils.fSize_17(),
+                  overflow: TextOverflow.fade,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: subText1,
+                    style: TextStyle(
+                      fontSize: SizeUtils.fSize_17(),
+                      fontWeight: FontWeight.w400,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(),
+            RichText(
+              text: TextSpan(
+                text: subText,
+                style: TextStyle(
+                  fontSize: SizeUtils.fSize_17(),
+                  overflow: TextOverflow.fade,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: subText2,
+                    style: TextStyle(
+                      fontSize: SizeUtils.fSize_17(),
+                      fontWeight: FontWeight.w400,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
   );
 }

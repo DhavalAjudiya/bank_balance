@@ -6,6 +6,7 @@ import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ifsc_code/ifsc_details.dart';
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ifsc_code/ifsc_page.dart';
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ifsc_code/ifsc_state.dart';
+import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ussd_banking/ussd_banking.dart';
 import 'package:get/get.dart';
 
 mixin Routes {
@@ -20,6 +21,7 @@ mixin Routes {
   static const String iFSCDetails = "/iFSCDetails";
   static const String bankBalance = "/bankBalance";
   static const String bankDetails = "/bankDetails";
+  static const String uSSDBanking = "/uSSDBanking";
 
   static List<GetPage<dynamic>> routes = [
     // GetPage<dynamic>(
@@ -65,6 +67,11 @@ mixin Routes {
     GetPage(
       name: bankDetails,
       page: () => BankDetails(),
+      transition: defaultTransition,
+    ),
+    GetPage(
+      name: uSSDBanking,
+      page: () => USSDBanking(),
       transition: defaultTransition,
     ),
   ];

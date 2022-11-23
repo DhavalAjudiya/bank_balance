@@ -54,7 +54,8 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: SizeUtils.horizontalBlockSize * 4),
+                        padding: EdgeInsets.only(
+                            top: SizeUtils.horizontalBlockSize * 4),
                         child: SizedBox(
                           height: SizeUtils.verticalBlockSize * 20,
                           child: PageView.builder(
@@ -64,18 +65,23 @@ class HomePage extends StatelessWidget {
                               homeController.currentPage.value = index;
                             },
                             itemCount: slideList.length,
-                            itemBuilder: (ctx, index) => slideItem(index: homeController.currentPage.value),
+                            itemBuilder: (ctx, index) => slideItem(
+                                index: homeController.currentPage.value),
                           ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: SizeUtils.horizontalBlockSize * 3),
+                        padding: EdgeInsets.only(
+                            top: SizeUtils.horizontalBlockSize * 3),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             for (int i = 0; i < slideList.length; i++)
-                              if (i == homeController.currentPage.value) const SlideDots(true) else const SlideDots(false)
+                              if (i == homeController.currentPage.value)
+                                const SlideDots(true)
+                              else
+                                const SlideDots(false)
                           ],
                         ),
                       ),
@@ -87,7 +93,8 @@ class HomePage extends StatelessWidget {
                 height: SizeUtils.horizontalBlockSize * 3,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 4),
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeUtils.horizontalBlockSize * 4),
                 child: Column(
                   children: [
                     headerRow(
@@ -99,7 +106,8 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: gridItemList.length,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           childAspectRatio: 45 / 50,
                           mainAxisSpacing: 2,
@@ -125,7 +133,8 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: gridItemList1.length,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           childAspectRatio: 45 / 50,
                           mainAxisSpacing: 2,
@@ -146,7 +155,8 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: gridItemList2.length,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           childAspectRatio: 45 / 50,
                           mainAxisSpacing: 2,
@@ -206,7 +216,7 @@ class HomePage extends StatelessWidget {
         return Navigation.pushNamed(Routes.ifscPage);
         break;
       case 3:
-        return Navigation.pushNamed(Routes.ifscPage);
+        return Navigation.pushNamed(Routes.uSSDBanking);
         break;
       case 4:
         return Navigation.pushNamed(Routes.ifscPage);
