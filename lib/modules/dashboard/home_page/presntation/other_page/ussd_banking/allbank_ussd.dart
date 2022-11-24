@@ -1,3 +1,5 @@
+import 'package:bank_balance/modules/dashboard/home_page/modal/ussd_modal.dart';
+import 'package:bank_balance/modules/dashboard/home_page/widget/homepage_widget.dart';
 import 'package:bank_balance/res/strings_utils.dart';
 import 'package:bank_balance/utils/size_utils.dart';
 import 'package:bank_balance/widget/headercontainer.dart';
@@ -15,33 +17,31 @@ class AllBankUssd extends StatelessWidget {
             StringsUtils.allUssd,
             iconChange: true,
           ),
-          ListView.builder(
-            padding: EdgeInsets.only(top: SizeUtils.horizontalBlockSize * 2),
-            shrinkWrap: true,
-            itemCount: ussdModalList.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: SizeUtils.horizontalBlockSize * 2,
-                  horizontal: SizeUtils.horizontalBlockSize * 4,
-                ),
-                child: GestureDetector(
-                  onTap: () {
-                    String num = ussdModalList[index].number;
-                    nevigation(num);
-                    // navigation(num);
-                    // Navigation.pushNamed(
-                    //   Routes.iFSCSelectCity,
-                    //   arg: {"cityDetails": state["city"]},
-                    // );
-                  },
-                  child: ifscDetails(
-                    ussdModalList[index].title,
-                    isChange: true,
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.only(
+                top: SizeUtils.horizontalBlockSize * 2,
+                bottom: SizeUtils.horizontalBlockSize * 8,
+              ),
+              shrinkWrap: true,
+              itemCount: allBankUSSDList.length,
+              itemBuilder: (context, index) {
+                var data = allBankUSSDList[index];
+                return Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: SizeUtils.horizontalBlockSize * 2,
+                    horizontal: SizeUtils.horizontalBlockSize * 4,
                   ),
-                ),
-              );
-            },
+                  child: ussdDetails(
+                      text1: data.title,
+                      text2: data.number,
+                      text: data.title1,
+                      subText: data.title3,
+                      subText1: data.title2,
+                      subText2: data.title4),
+                );
+              },
+            ),
           ),
         ],
       ),

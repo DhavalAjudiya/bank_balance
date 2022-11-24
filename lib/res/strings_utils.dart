@@ -43,4 +43,21 @@ class StringsUtils {
   static const String internetBanking = 'Internet Banking';
   static const String ussd = 'USSD Banking';
   static const String allUssd = 'All Bank USSD Code';
+  static const String setUpUssd = 'Setup USSD';
+  static const String setLanguage = 'Setup Language & Link Bank';
+  static const String setLsubText =
+      'if Using First Time Dial *99# to Setup your Language & Bank Account';
+  static const String welcome = 'WelCome to *99#';
+  static const String enterBank = "Enter Your Bank's";
+  static const String a = "a) Bank Name OR";
+  static const String b = "b) First 4 letter of IFSC OR";
+  static const String c = "c) 3 letter Short Name OR";
+  static const String d = "d) 2 dight numeric code";
+  static const String hdf = "HDF";
+  static const String cancel = "CANCEL";
+  static const String send = "SEND";
+  static const String codeList = "Bank's Short Name & Numaric Codes List";
+  static const String note =
+      "Note: Your Mobile No Must be registered with bank";
+  static const String dial = "DIAL *99#";
 }

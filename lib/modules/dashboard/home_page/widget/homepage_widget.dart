@@ -278,14 +278,14 @@ Widget ifscDetails(
   );
 }
 
-Widget ussdDetails(
-  String text,
-  String text1,
-  String text2,
-  String subText,
-  String subText1,
-  String subText2,
-) {
+Widget ussdDetails({
+  String? text,
+  String? text1,
+  String? text2,
+  String? subText,
+  String? subText1,
+  String? subText2,
+}) {
   return Container(
     width: double.infinity,
     // alignment: Alignment.center,
@@ -301,66 +301,57 @@ Widget ussdDetails(
         ),
       ],
     ),
-    child: Column(
-      children: [
-        AppText(
-          text1,
-          fontSize: SizeUtils.fSize_17(),
-          fontWeight: FontWeight.w400,
-          maxLines: 3,
-          overflow: TextOverflow.fade,
-        ),
-        AppText(
-          text2,
-          fontSize: SizeUtils.fSize_17(),
-          fontWeight: FontWeight.w400,
-          maxLines: 3,
-          overflow: TextOverflow.fade,
-        ),
-        Row(
-          children: [
-            RichText(
-              text: TextSpan(
-                text: text,
-                style: TextStyle(
-                  fontSize: SizeUtils.fSize_17(),
-                  overflow: TextOverflow.fade,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: subText1,
-                    style: TextStyle(
-                      fontSize: SizeUtils.fSize_17(),
-                      fontWeight: FontWeight.w400,
-                      overflow: TextOverflow.fade,
-                    ),
-                  ),
-                ],
+    child: Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: SizeUtils.horizontalBlockSize * 4,
+        vertical: SizeUtils.horizontalBlockSize * 3,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppText(
+            text1!,
+            fontSize: SizeUtils.fSize_17(),
+            fontWeight: FontWeight.w600,
+          ),
+          SizedBox(height: SizeUtils.horizontalBlockSize * 1.5),
+          AppText(
+            text2!,
+            fontSize: SizeUtils.fSize_15(),
+            fontWeight: FontWeight.w400,
+          ),
+          SizedBox(height: SizeUtils.horizontalBlockSize * 1.5),
+          Row(
+            children: [
+              AppText(
+                text!,
+                fontSize: SizeUtils.fSize_14(),
+                fontWeight: FontWeight.w400,
+                color: AppColors.black.withOpacity(0.7),
               ),
-            ),
-            const Spacer(),
-            RichText(
-              text: TextSpan(
-                text: subText,
-                style: TextStyle(
-                  fontSize: SizeUtils.fSize_17(),
-                  overflow: TextOverflow.fade,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: subText2,
-                    style: TextStyle(
-                      fontSize: SizeUtils.fSize_17(),
-                      fontWeight: FontWeight.w400,
-                      overflow: TextOverflow.fade,
-                    ),
-                  ),
-                ],
+              AppText(
+                subText!.toUpperCase(),
+                fontSize: SizeUtils.fSize_14(),
+                fontWeight: FontWeight.w600,
+                color: AppColors.dartBlue,
               ),
-            ),
-          ],
-        ),
-      ],
+              const Spacer(),
+              AppText(
+                subText1!,
+                fontSize: SizeUtils.fSize_14(),
+                fontWeight: FontWeight.w400,
+                color: AppColors.black.withOpacity(0.7),
+              ),
+              AppText(
+                subText2!.toUpperCase(),
+                fontSize: SizeUtils.fSize_14(),
+                fontWeight: FontWeight.w600,
+                color: AppColors.dartBlue,
+              ),
+            ],
+          ),
+        ],
+      ),
     ),
   );
 }

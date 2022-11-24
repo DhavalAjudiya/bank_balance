@@ -1,6 +1,8 @@
 import 'package:bank_balance/modules/dashboard/home_page/modal/ussd_modal.dart';
 import 'package:bank_balance/modules/dashboard/home_page/widget/homepage_widget.dart';
 import 'package:bank_balance/res/strings_utils.dart';
+import 'package:bank_balance/utils/navigation_utils/navigation.dart';
+import 'package:bank_balance/utils/navigation_utils/routes.dart';
 import 'package:bank_balance/utils/size_utils.dart';
 import 'package:bank_balance/widget/headercontainer.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,7 @@ class USSDBanking extends StatelessWidget {
         child: Column(
           children: [
             headerContainer(
-              StringsUtils.ussd,
+              StringsUtils.allUssd,
               iconChange: true,
             ),
             ListView.builder(
@@ -55,9 +57,9 @@ class USSDBanking extends StatelessWidget {
 
   void nevigation(String num) {
     if (num == "0") {
-      print("00000000000000000000000");
+      Navigation.pushNamed(Routes.allBankUssd);
     } else if (num == "1") {
-      print("1111111111111111111");
+      Navigation.pushNamed(Routes.setUpUSSD);
     } else {
       lunch(num);
     }

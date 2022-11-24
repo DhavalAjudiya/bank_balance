@@ -10,12 +10,13 @@ Widget createButton({
   Color? textColor,
   double? radius,
   double? vertical,
+  bool txtSize = false,
 }) {
   return InkWell(
     onTap: onTap,
     child: Padding(
-      padding:
-          EdgeInsets.symmetric(vertical: SizeUtils.horizontalBlockSize * 8),
+      padding: EdgeInsets.symmetric(
+          vertical: txtSize ? 0 : SizeUtils.horizontalBlockSize * 8),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -32,7 +33,7 @@ Widget createButton({
             style: TextStyle(
               color: textColor,
               // fontFamily: AssetsPath.roboto,
-              fontSize: SizeUtils.fSize_20(),
+              fontSize: txtSize ? SizeUtils.fSize_16() : SizeUtils.fSize_20(),
               fontWeight: FontWeight.w600,
             ),
           ),

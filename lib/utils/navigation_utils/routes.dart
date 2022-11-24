@@ -6,6 +6,8 @@ import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ifsc_code/ifsc_details.dart';
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ifsc_code/ifsc_page.dart';
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ifsc_code/ifsc_state.dart';
+import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ussd_banking/allbank_ussd.dart';
+import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ussd_banking/setup_ussd.dart';
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ussd_banking/ussd_banking.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +24,8 @@ mixin Routes {
   static const String bankBalance = "/bankBalance";
   static const String bankDetails = "/bankDetails";
   static const String uSSDBanking = "/uSSDBanking";
+  static const String allBankUssd = "/allBankUssd";
+  static const String setUpUSSD = "/setUpUSSD";
 
   static List<GetPage<dynamic>> routes = [
     // GetPage<dynamic>(
@@ -72,6 +76,16 @@ mixin Routes {
     GetPage(
       name: uSSDBanking,
       page: () => USSDBanking(),
+      transition: defaultTransition,
+    ),
+    GetPage(
+      name: allBankUssd,
+      page: () => AllBankUssd(),
+      transition: defaultTransition,
+    ),
+    GetPage(
+      name: setUpUSSD,
+      page: () => SetUpUSSD(),
       transition: defaultTransition,
     ),
   ];

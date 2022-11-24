@@ -219,7 +219,7 @@ class HomePage extends StatelessWidget {
         return Navigation.pushNamed(Routes.uSSDBanking);
         break;
       case 4:
-        return Navigation.pushNamed(Routes.ifscPage);
+        return Navigation.pushNamed(Routes.bankBalance);
         break;
       case 5:
         return Navigation.pushNamed(Routes.ifscPage);
