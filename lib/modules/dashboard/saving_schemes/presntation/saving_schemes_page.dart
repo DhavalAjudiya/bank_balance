@@ -19,8 +19,7 @@ class SavingSchemes extends StatelessWidget {
               iconChange: true,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: SizeUtils.horizontalBlockSize * 2),
+              padding: EdgeInsets.symmetric(horizontal: SizeUtils.horizontalBlockSize * 2),
               child: GridView.builder(
                   padding: const EdgeInsets.symmetric(vertical: 6),
                   physics: const NeverScrollableScrollPhysics(),
@@ -33,11 +32,8 @@ class SavingSchemes extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {
-                        _launchURL();
-
-                        // nevigation(index: index);
-                        // https://groww.in/p/savings-schemes/public-provident-fund-ppf
+                      onTap: () async {
+                        urlLauncher(index: index);
                       },
                       child: gridContainer(
                         image: savingList[index].imageUrl,
@@ -65,12 +61,39 @@ class SavingSchemes extends StatelessWidget {
     }
   }
 
-  _launchURL() async {
-    const url = 'https://flutter.io';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
+  Future<void> _launchUrl(String url) async {
+    final Uri urls = Uri.parse(url);
+    if (!await launchUrl(urls)) {
+      throw "Could not launch $urls";
+    }
+  }
+
+  Future<void>? urlLauncher({int? index}) {
+    switch (index) {
+      case 0:
+        return _launchUrl("https://groww.in/p/savings-schemes/public-provident-fund-ppf");
+        break;
+      case 1:
+        return _launchUrl("https://groww.in/p/savings-schemes/employees-provident-fund-epf");
+        break;
+      case 2:
+        return _launchUrl("https://financialservices.gov.in/pension-reforms-divisions/National-Pension-System");
+        break;
+      case 3:
+        return _launchUrl("https://groww.in/p/savings-schemes/public-provident-fund-ppf");
+        break;
+      case 4:
+        return _launchUrl("https://www.nsic.co.in/schemes/National-Scheduled-Caste-and-Scheduled-Tribe-Hub.aspx");
+        break;
+      case 5:
+        return _launchUrl("https://indiapostgdsonline.gov.in/");
+        break;
+      case 6:
+        return _launchUrl("https://vikaspedia.in/social-welfare/senior-citizens-welfare/pradhan-mantri-vaya-vandana-yojana");
+        break;
+      case 7:
+        return _launchUrl("https://pmjdy.gov.in/");
+        break;
     }
   }
 }
