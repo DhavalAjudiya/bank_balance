@@ -1,5 +1,7 @@
 import 'package:bank_balance/modules/dashboard/tools/modal/toolsmodal.dart';
 import 'package:bank_balance/res/strings_utils.dart';
+import 'package:bank_balance/utils/navigation_utils/navigation.dart';
+import 'package:bank_balance/utils/navigation_utils/routes.dart';
 import 'package:bank_balance/utils/size_utils.dart';
 
 import 'package:bank_balance/widget/headercontainer.dart';
@@ -31,10 +33,15 @@ class ToolsPage extends StatelessWidget {
                     mainAxisSpacing: 2,
                   ),
                   itemBuilder: (context, index) {
-                    return gridContainer(
-                      image: toolList[index].imageUrl,
-                      text: toolList[index].price1,
-                      text1: toolList[index].price2,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigation.pushNamed(Routes.loanGuidePage);
+                      },
+                      child: gridContainer(
+                        image: toolList[index].imageUrl,
+                        text: toolList[index].price1,
+                        text1: toolList[index].price2,
+                      ),
                     );
                   }),
             ),

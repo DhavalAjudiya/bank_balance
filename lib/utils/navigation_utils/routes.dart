@@ -9,6 +9,8 @@ import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ussd_banking/allbank_ussd.dart';
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ussd_banking/setup_ussd.dart';
 import 'package:bank_balance/modules/dashboard/home_page/presntation/other_page/ussd_banking/ussd_banking.dart';
+import 'package:bank_balance/modules/dashboard/tools/presntation/other_page/loan_gide.dart';
+import 'package:bank_balance/modules/dashboard/tools/presntation/other_page/loan_guide_details.dart';
 import 'package:get/get.dart';
 
 mixin Routes {
@@ -26,6 +28,8 @@ mixin Routes {
   static const String uSSDBanking = "/uSSDBanking";
   static const String allBankUssd = "/allBankUssd";
   static const String setUpUSSD = "/setUpUSSD";
+  static const String loanGuidePage = "/loanGuidePage";
+  static const String loanGuidDetails = "/loanGuidDetails";
 
   static List<GetPage<dynamic>> routes = [
     // GetPage<dynamic>(
@@ -86,6 +90,16 @@ mixin Routes {
     GetPage(
       name: setUpUSSD,
       page: () => SetUpUSSD(),
+      transition: defaultTransition,
+    ),
+    GetPage<dynamic>(
+      name: loanGuidePage,
+      page: () => LoanGuidePage(),
+      transition: defaultTransition,
+    ),
+    GetPage<dynamic>(
+      name: loanGuidDetails,
+      page: () => LoanGuidDetails(),
       transition: defaultTransition,
     ),
   ];
